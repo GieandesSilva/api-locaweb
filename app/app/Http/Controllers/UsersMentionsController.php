@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Api\TweetsService;
-use App\Transformers\UsersTransform;
+use App\Transformers\UsersTransformer;
 use Exception;
 use Illuminate\Http\Response;
 
@@ -15,7 +15,7 @@ class UsersMentionsController extends Controller
     public function __construct(TweetsService $service)
     {
         $this->service = $service;
-        $this->transform = new UsersTransform();
+        $this->transform = new UsersTransformer();
     }
 
     /**

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Api\TweetsService;
-use App\Transformers\TweetsTransform;
+use App\Transformers\TweetsTransformer;
 use Exception;
 use Illuminate\Http\Response;
 
@@ -15,7 +15,7 @@ class TweetsController extends Controller
     public function __construct(TweetsService $service)
     {
         $this->service = $service;
-        $this->transform = new TweetsTransform();
+        $this->transform = new TweetsTransformer();
     }
 
     /**

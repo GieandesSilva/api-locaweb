@@ -4,7 +4,7 @@
 namespace App\Transformers;
 
 
-class TweetsTransform
+class TweetsTransformer
 {
 
     public function transform($tweet) : array
