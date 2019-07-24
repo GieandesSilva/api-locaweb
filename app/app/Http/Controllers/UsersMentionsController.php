@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Services\Api\TweetsService;
-use App\Transformers\TweetsTransformer;
+use App\Transformers\UsersTransformer;
 use Exception;
 use Illuminate\Http\Response;
 
-class TweetsController extends Controller
+class UsersMentionsController extends Controller
 {
     protected $service;
     protected $transform;
@@ -15,7 +15,7 @@ class TweetsController extends Controller
     public function __construct(TweetsService $service)
     {
         $this->service = $service;
-        $this->transform = new TweetsTransformer();
+        $this->transform = new UsersTransformer();
     }
 
     /**
@@ -27,10 +27,10 @@ class TweetsController extends Controller
     {
         try {
             $tweetsRelevants = collect($this->service->execute());
-            $tweets = $tweetsRelevants->map(function ($v) {
+            $users = $tweetsRelevants->map(function ($v) {
                 return $this->transform->transform($v);
             });
-            return response()->json($tweets);
+            return response()->json($users);
         } catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()])->setStatusCode(($e->getCode())? $e->getCode() : 502);
         }
