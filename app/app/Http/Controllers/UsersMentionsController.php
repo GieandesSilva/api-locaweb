@@ -26,11 +26,11 @@ class UsersMentionsController extends Controller
     public function index()
     {
         try {
-            $tweetsRelevants = collect($this->service->execute());
-            $users = $tweetsRelevants->map(function ($v) {
+            $tweetsRelevant = collect($this->service->execute());
+            $users = $tweetsRelevant->map(function ($v) {
                 return $this->transform->transform($v);
             });
-            return response()->json($users);
+            return response()->json($users->values()->all());
         } catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()])->setStatusCode(($e->getCode())? $e->getCode() : 502);
         }
