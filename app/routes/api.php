@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->resource('/most_relevants', 'TweetsController')->only(['index']);
-
-//Route::middleware('auth:api')->resource('/most_mentions', function (Request $request) {
-//    return 'users mencionados';
-//});
+Route::middleware('auth:api')->resource('/most_mentions', 'UsersMentionsController')->only(['index']);
+Route::middleware('auth:api')->resource('/most_relevant', 'TweetsController')->only(['index']);
