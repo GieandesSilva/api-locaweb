@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->resource('/most_relevants', 'TweetsRelevantController')->only(['index']);
+Route::middleware('auth:api')->resource('/most_relevants', 'TweetsController')->only(['index']);
 
 //Route::middleware('auth:api')->resource('/most_mentions', function (Request $request) {
 //    return 'users mencionados';
