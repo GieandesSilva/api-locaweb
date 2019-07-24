@@ -45,6 +45,7 @@ class TweetsService
 
              Log::info('[TWEETS][SERVICE]: ' . $e->getMessage());
              abort(502, 'O serviço está indisponível, que chato :(, nossos profissionais estão se dedicando para solucionar');
+             return false;
         }
     }
 }
