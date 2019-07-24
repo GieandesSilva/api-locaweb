@@ -24,7 +24,7 @@ class TweetsRelevantController extends Controller
     {
         try {
             $tweetsRelevants = $this->service->execute();
-            return response()->json([$tweetsRelevants]);
+            return response()->json($tweetsRelevants);
 
 //
 //            $currentPage = ($request->get('page'))? $request->get('page') : 1;
@@ -44,7 +44,8 @@ class TweetsRelevantController extends Controller
 //
         } catch (\Exception $e) {
 
-            return response()->json(['message' => 'Houve um problema, os tweets estão temporiaramente inacessíveis.']);
+            return $e->getMessage();
+//            return response()->json(['message' => 'Houve um problema, os tweets estão temporiaramente inacessíveis.']);
         }
     }
 }
