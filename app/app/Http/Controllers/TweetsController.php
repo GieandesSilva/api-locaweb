@@ -26,12 +26,16 @@ class TweetsController extends Controller
     public function index()
     {
         try {
-            $tweetsRelevants = collect($this->service->execute());
-            $tweets = $tweetsRelevants->map(function ($v) {
+
+            $tweetsRelevant = collect($this->service->execute());
+
+            $tweets = $tweetsRelevant->map(function ($v) {
                 return $this->transform->transform($v);
             });
-            return response()->json($tweets);
+
+            return response()->json($tweets->values()->all());
         } catch (Exception $e) {
+
             return response()->json(['message' => $e->getMessage()])->setStatusCode(($e->getCode())? $e->getCode() : 502);
         }
     }
