@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         //
         DB::table('users')->insert([
             'name' => 'Gieandes Silva',
-            'email' => 'contato@gieandessilva.com',
+            'email' => 'api@locaweb.com',
             'password' => bcrypt('Test@2019'),
         ]);
     }
