@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Api\TweetsService;
+use App\Services\Api\Tweets\ManagerTweets;
 use App\Transformers\TweetsTransformer;
 use Exception;
 use Illuminate\Http\Response;
@@ -12,7 +12,7 @@ class TweetsController extends Controller
     protected $service;
     protected $transform;
 
-    public function __construct(TweetsService $service)
+    public function __construct(ManagerTweets $service)
     {
         $this->service = $service;
         $this->transform = new TweetsTransformer();
@@ -27,7 +27,7 @@ class TweetsController extends Controller
     {
         try {
 
-            $tweetsRelevant = collect($this->service->execute());
+            $tweetsRelevant = $this->service->execute();
 
             $tweets = $tweetsRelevant->map(function ($v) {
                 return $this->transform->transform($v);
