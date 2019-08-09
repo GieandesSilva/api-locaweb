@@ -11,7 +11,7 @@ O que você encontra aqui:
 * Faça o clone do projeto:
 
 ```bash
-    git clone git@github.com:GieandesSilva/api-locaweb.git [nome-do-projeto]
+    git clone https://github.com/GieandesSilva/api-locaweb.git [nome-do-projeto]
 ```
 
 * Entre na pasta [nome-do-projeto] e rode:
@@ -86,7 +86,7 @@ O que você encontra aqui:
 ```
             
 ## :D
-Agora Vamos fazer o Download do cliente.
+Agora Vamos fazer o download do cliente.
 
 ## Nós
 [Gieandes Silva](http://gieandessilva.com)
